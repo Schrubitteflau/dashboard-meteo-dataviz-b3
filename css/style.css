@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Quicksand:wght@500&display=swap");
+
+* {
+    /* Les tailles des boîtes seront calculées différemment */
+    box-sizing: border-box;
+    color: var(--primary-color);
+    font-family: "Quicksand", sans-serif;
+}
+
+:root {
+    /* Couleurs */
+    --bg-body: #0A0850;
+    --bg-main-container: #0E2877;
+    --bg-map-container: #0E2877;
+    --bg-box-item: #041138;
+    --bg-header:#000000;
+    --txt-kpi: #FFFFFF;
+    --txt-title: #FFFFFF;
+    --bg-autre: #0E2877;
+    --secondary-color: #7089b6;
+    --primary-color: #FFFFFF;
+
+    /* La carte a une taille fixe */
+    --map-absolute-width: 700px;
+    --map-absolute-height: 700px;
+
+    /* Les line charts ont une hauteur fixe */
+    --line-chart-absolute-height: 500px;
+}
+
+.content-title {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-family: "Anton", sans-serif;
+}
+
+.dynamic-content-line {
+    margin-top: 1rem;
+}
+
+body {
+    background-color: var(--bg-body);
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+#header {
+    width: 100%;
+    background-color: var(--bg-header);
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#filters {
+    display: flex;
+    flex-direction: row;
+}
+
+#dayFilter {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#daySlider {
+    cursor: pointer;
+    opacity: 0.9;
+    vertical-align: sub;
+}
+
+#daySlider:hover {
+    opacity: 1;
+}
+
+#mainContainer {
+    margin: auto;
+    flex-basis: 100%;
+    max-width: 1680px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-main-container);
+    padding: 10px;
+    gap: 20px;
+}
+
+#mapContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#mapChart {
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: var(--map-absolute-width);
+    height: var(--map-absolute-height);
+}
+
+#mapChart canvas {
+    border-radius: 15px;
+}
+
+#textInfos {
+    flex-grow: 1;
+    display: flex;
+    border-radius: 15px;
+    padding: 10px;
+    flex-direction: column;
+    background-color: var(--bg-box-item);
+}
+
+#dayInfos, #stationInfos {
+    display: flex;
+    flex-direction: column;
+}
+
+#dayInfosContainer, #stationInfosContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#dayGenerals, #dayPrecipitations, #dayTemperature,
+#stationGenerals, #stationPrecipitations, #stationTemperature {
+    flex-basis: 30%;
+    background-color: var(--bg-autre);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#dayTitle, #stationTitle {
+    text-align: center;
+    background-color: var(--bg-autre);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+#stationLineChart canvas,
+#dayLineChart canvas {
+    cursor: crosshair;
+    border-radius: 15px;
+}
+
+#stationLineChart, #dayLineChart {
+    height: var(--line-chart-absolute-height);
+}
+
+/* Si la largeur de l'écran passe sous les 1450px, les informations textuelles
+passent sous la carte et on centre la carte dans son conteneur */
+@media screen and (max-width: 1450px) {
+    #mapContainer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Si la largeur de l'écran passe sous les 800px, les blocs d'informations textuelles
+ne sont plus côté à côté mais les uns sous les autres. */
+@media screen and (max-width: 800px) {
+    #dayInfosContainer, #stationInfosContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    #mapChart {
+        flex-basis: 100%;
+    }
+}

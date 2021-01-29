@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tableau de bord météo</title>
+    <meta name="description" content="TP3 de Dataviz">
+    <meta name="author" content="Antoine SANSON">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg" href="images/soleil.svg">
+
+    <!-- Uniformise autant que possible les styles par défaut des éléments entre les navigateurs -->
+    <link rel="stylesheet" href="css/vendor/normalize.css">
+    <!-- Style du tableau de bord -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Bibliothèque Echarts -->
+    <script src="js/vendor/echarts.min.js"></script>
+    <!-- Script principal -->
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+
+    <!-- Header qui permet de changer le jour -->
+    <header id="header">
+        <h1>tableau de bord &gt; stations météo</h1>
+        <div id="filters">
+            <div id="dayFilter">
+                <label for="daySlider">Jour <span id="selectedDayLabel">1</span> :</label>
+                <input id="daySlider" class="slider" type="range" min="1" max="1" value="1" autocomplete="off">
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteneur principal qui contient tous les éléments du dashboard -->
+    <main id="mainContainer">
+
+        <!-- Graphique d'évolution des températures et des précipitations au fil des jours -->
+        <article id="dayLineChart"></article>
+
+        <!-- Contient la carte ainsi que ses informations -->
+        <article id="mapContainer">
+
+            <!-- La carte sera ici -->
+            <section id="mapChart"></section>
+
+            <!-- Informations textuelles concernant la carte et la station sélectionnée -->
+            <section id="textInfos">
+
+                <!-- Informations textuelles concernant le jour sélectionné -->
+                <div id="dayInfos">
+
+                    <!-- Titre de la section -->
+                    <div id="dayTitle">
+                        <div class="dynamic-content">Chargement ...</div>
+                    </div>
+
+                    <!-- Conteneur des blocs d'informations qui concernent le jour sélectionné -->
+                    <div id="dayInfosContainer">
+
+                        <!-- Informations générales -->
+                        <div id="dayGenerals">
+                            <div class="content-title">Quelques informations</div>
+                            <div class="dynamic-content">Aucun jour sélectionnée</div>
+                        </div>
+
+                        <!-- Informations concernant les précipitations -->
+                        <div id="dayPrecipitations">
+                            <div class="content-title">Précipitations</div>
+                            <div class="dynamic-content">Aucun jour sélectionnée</div>
+                        </div>
+    
+                        <!-- Informations concernant la température -->
+                        <div id="dayTemperature">
+                            <div class="content-title">Température</div>
+                            <div class="dynamic-content">Aucun jour sélectionnée</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Informations textuelles concernant la station sélectionnée -->
+                <div id="stationInfos">
+
+                    <!-- Titre de la section -->
+                    <div id="stationTitle">
+                        <div class="dynamic-content">Merci de sélectionner une station</div>
+                    </div>
+
+                    <!-- Conteneur des blocs d'informations qui concernent la station sélectionnée -->
+                    <div id="stationInfosContainer">
+
+                        <!-- Informations générales -->
+                        <div id="stationGenerals">
+                            <div class="content-title">Quelques informations</div>
+                            <div class="dynamic-content">Aucune station sélectionnée</div>
+                        </div>
+
+                        <!-- Informations concernant les précipitations -->
+                        <div id="stationPrecipitations">
+                            <div class="content-title">Précipitations</div>
+                            <div class="dynamic-content">Aucune station sélectionnée</div>
+                        </div>
+    
+                        <!-- Informations concernant la température -->
+                        <div id="stationTemperature">
+                            <div class="content-title">Température</div>
+                            <div class="dynamic-content">Aucune station sélectionnée</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </article>
+
+        <!-- Graphique d'évolution des températures et des précipitations pour un jour et une station donnés -->
+        <article id="stationLineChart"></article>
+
+    </main>
+
+</body>
+
+</html>
