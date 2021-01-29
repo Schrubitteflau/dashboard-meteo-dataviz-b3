@@ -14,7 +14,9 @@ export default {
             width: 400
         },
         subtextStyle: {
-            color: colors.titleSubtext
+            color: colors.titleSubtext,
+            overflow: "break",
+            width: 250
         }
     },
     tooltip: {
@@ -32,12 +34,12 @@ export default {
             type: "continuous",
             // L'index 3 du tableau values correspond au total des précipitations
             dimension: "3",
-
             // Définition des bornes (précipitations)
             min: 0,
             //max est défini dynamiquement
             text: [ "Humide", "Sec" ],
-
+            // Formatter l'affichage des minimums et maximums
+            formatter: value => `${value} mm`,
             // Permet de calculer des valeurs intermédiaires entre les paliers
             calculable: true,
             inRange: {

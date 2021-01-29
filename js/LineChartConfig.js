@@ -3,6 +3,10 @@ import { lineChart as colors } from "./Colors.js";
 export default {
     // Couleur de fond
     backgroundColor: colors.background,
+    grid: {
+        // Distance entre le haut du graphique et le haut du conteneur
+        top: 150
+    },
     // Titre
     title: {
         subtext: "Activer les deux ordonnées permet de comparer leurs évolutions",
@@ -13,7 +17,9 @@ export default {
             width: 400
         },
         subtextStyle: {
-            color: colors.titleSubtext
+            color: colors.titleSubtext,
+            overflow: "break",
+            width: 250
         }
     },
     dataset: {
