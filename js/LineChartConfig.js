@@ -8,7 +8,9 @@ export default {
         subtext: "Activer les deux ordonnées permet de comparer leurs évolutions",
         x: "center",
         textStyle: {
-            color: colors.titleText
+            color: colors.titleText,
+            overflow: "break",
+            width: 400
         },
         subtextStyle: {
             color: colors.titleSubtext

@@ -9,7 +9,9 @@ export default {
         sublink: "https://echarts.apache.org/examples/en/editor.html?c=scatter-map",
         x: "center",
         textStyle: {
-            color: colors.titleText
+            color: colors.titleText,
+            overflow: "break",
+            width: 400
         },
         subtextStyle: {
             color: colors.titleSubtext
