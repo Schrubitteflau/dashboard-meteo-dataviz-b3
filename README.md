@@ -5,3 +5,5 @@ Les données concernant les DOM TOM ont été supprimées et les moyennes/totaux
 Ignorer les fichiers `composer.json` et `index.php`, qui servent uniquement pour l'hébergement.
 
 La bibliothèque choisie est [Echarts](https://echarts.apache.org/en/index.html), en version `5`.
+
+Le dashboard est accessible [ici](https://dashboard-meteo.herokuapp.com/).
