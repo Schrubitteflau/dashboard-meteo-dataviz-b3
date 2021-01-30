@@ -11,11 +11,8 @@
     /* Couleurs */
     --bg-body: #0A0850;
     --bg-main-container: #0E2877;
-    --bg-map-container: #0E2877;
     --bg-box-item: #041138;
     --bg-header:#000000;
-    --txt-kpi: #FFFFFF;
-    --txt-title: #FFFFFF;
     --bg-autre: #0E2877;
     --secondary-color: #7089b6;
     --primary-color: #FFFFFF;
@@ -154,25 +151,30 @@ h1 {
     height: var(--line-chart-absolute-height);
 }
 
-/* Si la largeur de l'écran passe sous les 1450px, les informations textuelles
-passent sous la carte et on centre la carte dans son conteneur */
 @media screen and (max-width: 1450px) {
+    /* Infos textuelles sous la carte, carte centrée dans son conteneur */
     #mapContainer {
         flex-wrap: wrap;
         justify-content: center;
     }
 }
 
-/* Si la largeur de l'écran passe sous les 800px, les blocs d'informations textuelles
-ne sont plus côté à côté mais les uns sous les autres. */
+/* Infos textuelles passent les uns sous les autres */
 @media screen and (max-width: 800px) {
     #dayInfosContainer, #stationInfosContainer {
         flex-direction: column;
         gap: 10px;
     }
+
+    /* Hauteur des graphiques diminuée */
+    #stationLineChart, #dayLineChart {
+        height: 320px;
+    }
 }
 
+/* Lorsque la largeur du conteneur devient à peine plus grande que la carte */
 @media screen and (max-width: 730px) {
+    /* La carte prend la largeur de son conteneur */
     #mapChart {
         flex-basis: 100%;
     }
